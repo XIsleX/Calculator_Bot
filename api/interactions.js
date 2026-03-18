@@ -69,9 +69,9 @@ module.exports = async (req, res) => {
 
   // 2. Handle Mandatory Discord Ping
   if (interaction.type === 1) { // 1 = PING
-    console.log("✅ Ping received! Sending Pong back to Discord.");
-    // Force strict JSON formatting using res.json()
-    return res.status(200).json({ type: 1 }); 
+    console.log("✅ Ping received! Forcing explicit Pong.");
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({ type: 1 })); 
   }
 
   // 3. Handle Button Click -> Open Modal
