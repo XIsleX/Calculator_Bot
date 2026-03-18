@@ -14,8 +14,13 @@ const rest = new REST({ version: '10' }).setToken('YOUR_BOT_TOKEN');
   try {
     console.log('Registering commands...');
     console.log("TOKEN:", process.env.TOKEN?.slice(0, 10));
+    console.log("TOKEN LENGTH:", process.env.TOKEN.length);
+    console.log("TOKEN LAST 5:", process.env.TOKEN.slice(-5));
     await rest.put(
-      Routes.applicationCommands('1407286198854225971'),
+      Routes.applicationGuildCommands(
+        process.env.CLIENT_ID,
+        "YOUR_SERVER_ID"
+        ),
       { body: commands }
     );
     console.log('Done.');
