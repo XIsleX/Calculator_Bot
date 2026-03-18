@@ -13,7 +13,7 @@ const rest = new REST({ version: '10' }).setToken('YOUR_BOT_TOKEN');
   try {
     console.log('Registering commands...');
     await rest.put(
-      Routes.applicationCommands('YOUR_CLIENT_ID'),
+      Routes.applicationCommands('1407286198854225971'),
       { body: commands }
     );
     console.log('Done.');
